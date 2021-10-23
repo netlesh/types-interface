@@ -12,8 +12,8 @@
   "author": "webmarken lab OÜ",
   "license": "ISC",
   "devDependencies": {
-    "@directus/extension-sdk": "^9.0.0-rc.90",
-    "sass": "^1.35.2"
+    "@directus/extension-sdk": "^9.0.0-rc.91",
+    "sass": "^1.43.3"
   },
   "directus:extension": {
     "type": "interface",
@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "@vueup/vue-quill": "^1.0.0-beta.7",
-    "postcss": "^8.3.6"
+    "postcss": "^8.3.11"
   }
 }
