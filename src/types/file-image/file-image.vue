@@ -90,14 +90,14 @@
 <script lang="ts">
 import { useI18n } from "vue-i18n";
 import { defineComponent, ref, watch, computed, PropType } from "vue";
-import api from "@/api";
-import formatFilesize from "@/utils/format-filesize";
-import FileLightbox from "@/views/private/components/file-lightbox";
+import api from "../../../../../node_modules/directus/";
+import formatFilesize from "../../../../../node_modules/directus";
+import FileLightbox from "../../../../../node_modules/directus";
 import { nanoid } from "nanoid";
-import { getRootPath } from "@/utils/get-root-path";
-import { unexpectedError } from "@/utils/unexpected-error";
-import { addTokenToURL } from "@/api";
-import DrawerItem from "@/views/private/components/drawer-item";
+import { getRootPath } from "../../../../../node_modules/directus";
+import { unexpectedError } from "../../../../../node_modules/directus";
+import { addTokenToURL } from "../../../../../node_modules/directus";
+import DrawerItem from "../../../../../node_modules/directus";
 type Image = {
   id: string; // uuid
   type: string;
