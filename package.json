@@ -17,7 +17,7 @@
   },
   "directus:extension": {
     "type": "interface",
-    "path": "../biohandel/extensions/interfaces/moduletype/index.js",
+    "path": "../../extensions/interfaces/moduletype/index.js",
     "source": "src/index.js",
     "host": "^9.0.0-rc.90",
     "hidden": false

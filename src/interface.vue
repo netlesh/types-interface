@@ -14,11 +14,17 @@
       </template>
     </v-select>
     <div class="module-elements">
-      <modtext v-model:modtext="module.modtext" v-if="module.type === 'modtext'" />
-      
+      <modtext
+        v-model:modtext="module.modtext"
+        v-if="module.type === 'modtext'"
+      />
+
       <!-- Corresponding code here. Probably needs more props and to be working with the rest -->
-      <imgtext v-model:imgtext="module.imgtext" v-if="module.type === 'imgtext'" />
-      
+      <imgtext
+        v-model:imgtext="module.imgtext"
+        v-if="module.type === 'imgtext'"
+      />
+
       <janein :janein="module.janein" v-if="module.type === 'janein'" />
       <multiple :multiple="module.multiple" v-if="module.type === 'multiple'" />
       <answers :answers="module.answers" v-if="module.type === 'answers'" />
@@ -37,7 +43,6 @@ import answers from "./types/answers/answers.vue";
 import statement from "./types/statement/statement.vue";
 import modtext from "./types/modtext/index.vue";
 import imgtext from "./types/imgtext/index.vue";
-
 
 export default {
   emits: ["input"],
@@ -85,6 +90,7 @@ export default {
     return {
       items: [
         { key: "Text", value: "modtext" },
+        { key: "ImageText", value: "imgtext" },
         { key: "Ja/Nein", value: "janein" },
         { key: "Multiple Choice", value: "multiple" },
         { key: "Multiple Answers", value: "answers" },
