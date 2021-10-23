@@ -1,14 +1,13 @@
 <template>
-
   <!-- Directus File Interface needs to go here -->
-
-  <QuillEditor
+  <div>test</div>
+  <!-- <QuillEditor
     theme="snow"
     v-model:content="modtext"
     contentType="html"
     :toolbar="customToolbar"
     @update:content="updateProp($event)"
-  />
+  /> -->
 </template>
 
 <script>
@@ -22,7 +21,7 @@ export default {
       default: "",
     },
   },
-  emits: ['update:imgtext'],
+  emits: ["update:imgtext"],
   data() {
     return {
       customToolbar: [
@@ -33,10 +32,10 @@ export default {
     };
   },
   methods: {
-      updateProp(val) {
-        console.log(val) 
-        this.$emit('update:imgtext', {"txt": val})
-      }
+    updateProp(val) {
+      console.log(val);
+      this.$emit("update:imgtext", { txt: val });
+    },
   },
   components: {
     QuillEditor,

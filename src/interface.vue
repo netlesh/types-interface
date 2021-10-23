@@ -24,6 +24,10 @@
         v-model:imgtext="module.imgtext"
         v-if="module.type === 'imgtext'"
       />
+      <justimg
+        v-model:justimg="module.justimg"
+        v-if="module.type === 'justimg'"
+      />
 
       <janein :janein="module.janein" v-if="module.type === 'janein'" />
       <multiple :multiple="module.multiple" v-if="module.type === 'multiple'" />
@@ -43,10 +47,19 @@ import answers from "./types/answers/answers.vue";
 import statement from "./types/statement/statement.vue";
 import modtext from "./types/modtext/index.vue";
 import imgtext from "./types/imgtext/index.vue";
+import justimg from "./types/justimg/index.vue";
 
 export default {
   emits: ["input"],
-  components: { janein, multiple, answers, statement, modtext, imgtext },
+  components: {
+    janein,
+    multiple,
+    answers,
+    statement,
+    modtext,
+    imgtext,
+    justimg,
+  },
   props: {
     collection: {
       type: String,
@@ -58,7 +71,15 @@ export default {
         return {
           type: "",
           modtext: "",
-          imgtext: "",
+          imgtext: {
+            img: "",
+            txt: "",
+          },
+          justimg: {
+            id: "",
+            type: "",
+            filename_download: "",
+          },
           janein: {
             frage: "",
             correct: "",
@@ -91,6 +112,7 @@ export default {
       items: [
         { key: "Text", value: "modtext" },
         { key: "ImageText", value: "imgtext" },
+        { key: "JustImage", value: "justimg" },
         { key: "Ja/Nein", value: "janein" },
         { key: "Multiple Choice", value: "multiple" },
         { key: "Multiple Answers", value: "answers" },
@@ -99,7 +121,15 @@ export default {
       module: {
         type: "",
         modtext: "",
-        imgtext: "",
+        imgtext: {
+          img: "",
+          txt: "",
+        },
+        justimg: {
+          id: "",
+          type: "",
+          filename_download: "",
+        },
         janein: {
           frage: "",
           correct: "",
