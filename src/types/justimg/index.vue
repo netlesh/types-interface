@@ -13,8 +13,12 @@ export default {
   methods: {
     getImageID(id) {
       this.imageId = id;
-      console.log("imageId:>> ", this.imageId);
     },
   },
 };
 </script>
+<style lang="scss" scoped>
+h3 {
+  margin-top: 1rem;
+}
+</style>
