@@ -2,10 +2,10 @@
   <interface-file-image @input="getImageID($event)"></interface-file-image>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   methods: {
-    getImageID(id: string) {
+    getImageID(id) {
       console.log("id:>> ", id);
     },
   },

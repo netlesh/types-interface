@@ -40,7 +40,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import janein from "./types/janein/janein.vue";
 import multiple from "./types/multiple/multiple.vue";
 import answers from "./types/answers/answers.vue";
