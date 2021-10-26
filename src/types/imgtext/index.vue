@@ -1,13 +1,13 @@
 <template>
   <!-- Directus File Interface needs to go here -->
-  <div>test</div>
-  <!-- <QuillEditor
+  <interface-file-image v-model="imgtext.img"></interface-file-image>
+  <QuillEditor
     theme="snow"
     v-model:content="modtext"
     contentType="html"
     :toolbar="customToolbar"
     @update:content="updateProp($event)"
-  /> -->
+  />
 </template>
 
 <script>
@@ -17,8 +17,7 @@ import "@vueup/vue-quill/dist/vue-quill.snow.css";
 export default {
   props: {
     imgtext: {
-      type: String,
-      default: "",
+      type: Object,
     },
   },
   emits: ["update:imgtext"],
@@ -35,6 +34,10 @@ export default {
     updateProp(val) {
       console.log(val);
       this.$emit("update:imgtext", { txt: val });
+    },
+    updateImage(val) {
+      console.log(val);
+      this.$emit("update:imgtext", { img: val });
     },
   },
   components: {
