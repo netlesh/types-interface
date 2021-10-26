@@ -40,7 +40,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import janein from "./types/janein/janein.vue";
 import multiple from "./types/multiple/multiple.vue";
 import answers from "./types/answers/answers.vue";
@@ -77,8 +77,6 @@ export default {
           },
           justimg: {
             id: "",
-            type: "",
-            filename_download: "",
           },
           janein: {
             frage: "",
