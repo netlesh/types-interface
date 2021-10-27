@@ -13,7 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@directus/extension-sdk": "^9.0.0-rc.91",
-    "sass": "^1.43.3"
+    "sass": "^1.43.4"
   },
   "directus:extension": {
     "type": "interface",
