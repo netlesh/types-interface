@@ -24,10 +24,7 @@
         v-model:imgtext="module.imgtext"
         v-if="module.type === 'imgtext'"
       />
-      <justimg
-        v-model:justimg="module.justimg"
-        v-if="module.type === 'justimg'"
-      />
+      <justimg :justimg="module.justimg" v-if="module.type === 'justimg'" />
 
       <janein :janein="module.janein" v-if="module.type === 'janein'" />
       <multiple :multiple="module.multiple" v-if="module.type === 'multiple'" />
@@ -76,7 +73,9 @@ export default {
             txt: "",
           },
           justimg: {
-            id: "",
+            input: {
+              imageID: "",
+            },
           },
           janein: {
             frage: "",
@@ -124,9 +123,7 @@ export default {
           txt: "",
         },
         justimg: {
-          id: "",
-          type: "",
-          filename_download: "",
+          imageID: "",
         },
         janein: {
           frage: "",

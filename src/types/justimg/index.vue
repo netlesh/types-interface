@@ -1,18 +1,22 @@
 <template>
-  <interface-file-image @input="getImageID($event)"></interface-file-image>
-  <h3>ID: {{ imageId }}</h3>
+  <interface-file-image @input="setImageIDProp($event)"></interface-file-image>
+  <h3>ID: {{ imageID }}</h3>
 </template>
 
 <script lang="ts">
 export default {
-  data() {
-    return {
-      imageId: "",
-    };
+  props: {
+    imageID: {
+      type: String,
+      default: "a6d8db95-fdce-4c7b-b92d-257a59d2a5ca",
+    },
   },
+  emits: ["update.imageID"],
   methods: {
-    getImageID(id) {
-      this.imageId = id;
+    setImageIDProp(id) {
+      this.$props.imageID = id;
+      console.log(this.imageID);
+      this.$emit("update.imageID", id);
     },
   },
 };
