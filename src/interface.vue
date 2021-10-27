@@ -19,12 +19,10 @@
         v-if="module.type === 'modtext'"
       />
 
-      <!-- Corresponding code here. Probably needs more props and to be working with the rest -->
       <imgtext
         v-model:imgtext="module.imgtext"
         v-if="module.type === 'imgtext'"
       />
-      <justimg :justimg="module.justimg" v-if="module.type === 'justimg'" />
 
       <janein :janein="module.janein" v-if="module.type === 'janein'" />
       <multiple :multiple="module.multiple" v-if="module.type === 'multiple'" />
@@ -44,8 +42,6 @@ import answers from "./types/answers/answers.vue";
 import statement from "./types/statement/statement.vue";
 import modtext from "./types/modtext/index.vue";
 import imgtext from "./types/imgtext/index.vue";
-import justimg from "./types/justimg/index.vue";
-
 export default {
   emits: ["input"],
   components: {
@@ -55,7 +51,6 @@ export default {
     statement,
     modtext,
     imgtext,
-    justimg,
   },
   props: {
     collection: {
@@ -69,14 +64,10 @@ export default {
           type: "",
           modtext: "",
           imgtext: {
-            img: "",
-            txt: "",
+            imageID: "",
+            html: "",
           },
-          justimg: {
-            input: {
-              imageID: "",
-            },
-          },
+
           janein: {
             frage: "",
             correct: "",
@@ -109,7 +100,6 @@ export default {
       items: [
         { key: "Text", value: "modtext" },
         { key: "ImageText", value: "imgtext" },
-        { key: "JustImage", value: "justimg" },
         { key: "Ja/Nein", value: "janein" },
         { key: "Multiple Choice", value: "multiple" },
         { key: "Multiple Answers", value: "answers" },
@@ -119,12 +109,10 @@ export default {
         type: "",
         modtext: "",
         imgtext: {
-          img: "",
-          txt: "",
-        },
-        justimg: {
           imageID: "",
+          html: "",
         },
+
         janein: {
           frage: "",
           correct: "",
@@ -151,14 +139,13 @@ export default {
     module: {
       deep: true,
       handler(newValue) {
-        console.log("watch module", newValue);
+        //console.log("watch module", newValue);
         this.emitValues(newValue);
       },
     },
     value: {
       deep: true,
       handler(newValue) {
-        // Only fire when this.module is updated
         if (!newValue.type) return;
         console.log("watch value", newValue);
         if (JSON.stringify(newValue) !== JSON.stringify(this.module))

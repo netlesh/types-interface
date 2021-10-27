@@ -1,12 +1,14 @@
 <template>
-  <!-- Directus File Interface needs to go here -->
-  <interface-file-image v-model="imgtext.img"></interface-file-image>
+  <interface-file-image
+    @input="updateImage($event)"
+    v-model:input="imgtext.imageID"
+  ></interface-file-image>
   <QuillEditor
     theme="snow"
-    v-model:content="modtext"
+    v-model:content="imgtext.html"
     contentType="html"
     :toolbar="customToolbar"
-    @update:content="updateProp($event)"
+    @update:content="updateHtml($event)"
   />
 </template>
 
@@ -18,8 +20,15 @@ export default {
   props: {
     imgtext: {
       type: Object,
+      default() {
+        return {
+          imageID: "",
+          html: "",
+        };
+      },
     },
   },
+
   emits: ["update:imgtext"],
   data() {
     return {
@@ -31,17 +40,20 @@ export default {
     };
   },
   methods: {
-    updateProp(val) {
-      console.log(val);
-      this.$emit("update:imgtext", { txt: val });
+    updateHtml(h) {
+      console.log("htmlData changed" + h);
+      this.$emit("update:imgtext", { html: h });
     },
-    updateImage(val) {
-      console.log(val);
-      this.$emit("update:imgtext", { img: val });
+    updateImage(id) {
+      console.log("imageID changed:" + id);
+      this.$emit("update:imgtext", { imageID: id });
     },
   },
   components: {
     QuillEditor,
+  },
+  mounted() {
+    console.log("this.$props.imgtext :>> ", this.$props.imgtext);
   },
 };
 </script>
